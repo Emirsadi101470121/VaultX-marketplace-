@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 228 15% 7%;
+    --foreground: 210 20% 95%;
+
+    --card: 228 15% 10%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 228 15% 10%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 225 73% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 228 15% 15%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 228 12% 14%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 265 60% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 228 12% 17%;
+    --input: 228 12% 17%;
+    --ring: 225 73% 57%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 228 15% 8%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 225 73% 57%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 228 15% 14%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 228 12% 17%;
+    --sidebar-ring: 225 73% 57%;
+
+    /* VaultX custom tokens */
+    --vx-blue: 225 73% 57%;
+    --vx-violet: 265 60% 60%;
+    --vx-silver: 220 10% 72%;
+    --vx-neon: 195 100% 60%;
+    --vx-gold: 45 90% 55%;
+    --vx-surface: 228 15% 12%;
+    --vx-surface-elevated: 228 15% 15%;
+    --vx-glow-blue: 225 90% 60%;
+    --vx-glow-violet: 265 80% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre, code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(228 15% 7%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(228 12% 22%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(228 12% 30%);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/[0.08];
+  }
+
+  .glass-strong {
+    @apply bg-white/[0.07] backdrop-blur-2xl border border-white/[0.12];
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px -5px hsl(225 90% 60% / 0.3),
+                0 0 60px -15px hsl(225 90% 60% / 0.15);
+  }
+
+  .glow-violet {
+    box-shadow: 0 0 20px -5px hsl(265 80% 65% / 0.3),
+                0 0 60px -15px hsl(265 80% 65% / 0.15);
+  }
+
+  .glow-border {
+    box-shadow: inset 0 0 0 1px hsl(225 73% 57% / 0.15),
+                0 0 20px -8px hsl(225 90% 60% / 0.2);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-yellow-300;
+  }
+
+  .form-input {
+    @apply w-full h-12 px-4 rounded-xl bg-white/[0.04] border border-white/[0.08] text-sm text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/30 transition-all;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/5;
+  }
+
+  .premium-shadow {
+    box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.4),
+                0 0 0 1px hsl(228 12% 17%);
+  }
+}
